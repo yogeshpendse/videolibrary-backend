@@ -35,5 +35,14 @@ router.route("/create").post(async (req, res) => {
     res.json({ success: false, errormessage: error.message });
   }
 });
+router.route("/getallplaylist").get(async (req, res) => {
+  try {
+    const uservalueid = req.uservalueid;
+    const userplaylists = await Playlist.find({ userid: uservalueid });
+    res.json({ success: true, userplaylists });
+  } catch (error) {
+    res.status(400).json({ success: false, errormessage: error.message });
+  }
+});
 
 module.exports = router;
