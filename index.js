@@ -8,6 +8,8 @@ const port = process.env.PORT || 7000;
 const dburi = process.env.URI;
 const userroute = require("./routes/user.route");
 const playlistroute = require("./routes/playlist.route");
+const videoroute = require("./routes/video.route");
+
 const { dbconnection } = require("./db/db.conn");
 dbconnection(dburi);
 app.get("/", (req, res) => {
@@ -15,7 +17,8 @@ app.get("/", (req, res) => {
 });
 app.use("/user", userroute);
 app.use("/playlist", playlistroute);
+app.use("/video", videoroute);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Aloha app listening at http://localhost:${port}`);
 });
