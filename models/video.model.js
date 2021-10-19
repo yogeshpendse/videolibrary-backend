@@ -4,6 +4,7 @@ const Videoschema = new mongoose.Schema(
   {
     videocode: { type: String },
     name: { type: String },
+    thumbnail: { type: String },
     time: { type: Number },
     name: { type: String },
     description: { type: String },

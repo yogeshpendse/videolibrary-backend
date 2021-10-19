@@ -20,6 +20,15 @@ router.route("/getallvideos").get(async (req, res) => {
   }
 });
 
+router.route("/thisvideo/:id").get(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await Video.findById(id);
+
+    res.json({ success: true, videodata: data });
+  } catch (error) {}
+});
+
 router.route("/:playlistid").get(async (req, res) => {
   try {
     const { playlistid } = req.params;

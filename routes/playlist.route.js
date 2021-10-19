@@ -30,6 +30,7 @@ router.route("/create").post(async (req, res) => {
     res.json({
       success: true,
       message: "playlist created successfully",
+      playlistcode,
     });
   } catch (error) {
     console.log(error);
